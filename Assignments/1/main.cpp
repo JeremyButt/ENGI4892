@@ -1,6 +1,9 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+
+#include "header.h"
+
 using namespace std;
 
 int main(int argc,char *argv[]){
@@ -15,12 +18,16 @@ int main(int argc,char *argv[]){
 	ifstream dataFile(filename);
 	
 	if(!dataFile){
-		cout << "ERROR: Unable to open file! " << endl;
+		cout << "ERROR: Unable to open file \'" << filename << "\'!"  << endl;
 		return 0; 
 	}
 	
 	string s;
+	int i = 1;
 	while(getline(dataFile, s)){
+		if(i == 1){
+			int data[s];		
+		}
 		cout << s << endl;
 	}
 
