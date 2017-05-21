@@ -1,26 +1,27 @@
 #include <fstream>
 #include <iostream>
-
+#include <string>
+#include <sstream>
 using namespace std;
 
 int main ( int argc, char *argv[] )
 {
-  if ( argc != 2 ) // argc should be 2 for correct execution
-    // We print argv[0] assuming it is the program name
-    cout<<"usage: "<< argv[0] <<" <filename>\n";
-  else {
-    // We assume argv[1] is a filename to open
-    ifstream the_file ( argv[1] );
-    // Always check to see if file opening succeeded
-    if ( !the_file.is_open() )
-      cout<<"Could not open file\n";
-    else {
-      char x;
-      // the_file.get ( x ) returns false if the end of the file
-      //  is reached or an error occurs
-      while ( the_file.get ( x ) )
-        cout<< x;
-    }
-    // the_file is closed implicitly here
+  istringstream iss("4 3 2 1");
+  string s;
+  int array[4];
+  int i=0;
+  int numb = 0;
+  while ( getline( iss, s, ' ' ) ) {
+
+    //cout << s << endl;
+    istringstream(s) >> numb;
+    //cout << numb << endl;
+    array[i] = numb;
+    i++;
   }
+
+  for(int x=0; x<(sizeof(array)/sizeof(array[0])); x++){
+      cout << array[x] << endl;
+  }
+
 }
