@@ -7,32 +7,26 @@
 using namespace std;
 
 
-struct Col {
-	int **data = new int*[];
-	int size = 0;
-	int min = 0;
-	int max = 0;
-};
-
-void fillArray(int **data, int data_input[]){
-	for(int i = 0; i<(sizeof(data_input)/sizeof(data_input[0])); i++){
+int* fillArray(int data_input[], int size){
+	int* data = new int[size];
+	for(int i = 0; i<(size); i++){
 		data[i] = data_input[i];
 	}
+	return data;
 }
 
-bool parse_data(string s, int data[]){
+bool parse_data(string s, int data[], int size){
+
 	istringstream iss(s);
   string str;
-  int i=0;
   int numb = 0;
 	getline(iss,str,' ');
-  while(getline(iss,str,' ')){
+  for(int i=0; getline(iss,str,' ') && i<size; i++){
 
     istringstream(str) >> numb;
-		//cout << numb << endl;
     data[i] = numb;
-    i++;
   }
+
 	return true;
 }
 
@@ -43,4 +37,30 @@ int getLengthRequired(string s){
 	getline( iss, s_length, ' ' );
 	istringstream(s_length) >> i_length;
 	return i_length;
+}
+
+int minimum(int* data, int size){
+	int answer = data[0];
+	for(int i=0; i<size; i++){
+		if(data[i]<answer){
+			answer = data[i];
+		}
+	}
+	return answer;
+}
+int maximum(int* data, int size){
+	int answer = data[0];
+	for(int i=0; i<size; i++){
+		if(data[i]>answer){
+			answer = data[i];
+		}
+	}
+	return answer;
+}
+double average(int* data, int size){
+	int answer = 0;
+	for(int i=0; i<size; i++){
+		answer+=data[i];
+	}
+	return answer/size;
 }

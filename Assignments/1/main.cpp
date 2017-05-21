@@ -32,30 +32,34 @@ int main(int argc,char *argv[]){
 	for(int i=0; getline(dataFile, s) && i<x; i++){
 
 		int length = getLengthRequired(s);
-		cout << "Lenght: " << length << endl;
 		int data[length];
-		bool result = parse_data(s,data);
+		bool result = parse_data(s,data,length);
+
 		Col input_data;
 		input_data.size = length;
-		fillArray(input_data.data, data);
+		input_data.data = fillArray(data,length);
+		input_data.max = maximum(input_data.data, input_data.size);
+		input_data.min = minimum(input_data.data, input_data.size);
+		input_data.avg = average(input_data.data, input_data.size);
+
 		arr[i] = input_data;
 
-		cout << "DATA: " << endl;
-		for(int x=0; x<(sizeof(data)/sizeof(data[0])); x++){
-				cout << data[x] << endl;
+	}
+
+	for(int n=0; n<(sizeof(arr)/sizeof(arr[0])); n++){
+		cout << "Row #" << n+1 << ": (size: " << arr[n].size << ") [";
+		for(int j=0; j<arr[n].size; j++){
+			if(j==arr[n].size-1){
+				cout << arr[n].data[j] << "";
+			}else{
+				cout << arr[n].data[j] << " ";
+			}
 		}
+		cout << "] Min: " << minimum(arr[n].data, arr[n].size) << " Max: "  << maximum(arr[n].data, arr[n].size) << " Avg: " << average(arr[n].data, arr[n].size) << endl;
 	}
 
 
 
-/*
-	while(getline(dataFile, s)){
-		if(i == 1){
-			int data[s];
-		}
-		cout << s << endl;
-	}
-*/
 	dataFile.close();
 
 	return 0;
