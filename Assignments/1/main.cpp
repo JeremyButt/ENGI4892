@@ -64,6 +64,8 @@ int main(int argc,char *argv[]){
 			}
 		}
 		cout << "] Min: " << minimum(arr[n].data, arr[n].size) << " Max: "  << maximum(arr[n].data, arr[n].size) << " Avg: " << average(arr[n].data, arr[n].size) << endl;
+		delete[] arr[n].data;
+		arr[n].data = nullptr;
 	}
 
 
