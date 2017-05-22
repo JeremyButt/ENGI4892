@@ -39,5 +39,3 @@ int maximum(int* data, int size);
 // pre-condition: Pointer to an array of ‘n’ integers
 // post-condition: Calculates the average of the elements in the array (array is unchanged) … average ( … )
 double average(int* data, int size);
-
-void deallocate(int* data[], int size);
