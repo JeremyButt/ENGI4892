@@ -1,4 +1,8 @@
 //header.cpp
+//Author: Jeremy Butt
+//				jeremybutt@mun.ca
+//				201527710
+
 #include <fstream>
 #include <iostream>
 #include <string>

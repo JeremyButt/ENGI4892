@@ -1,3 +1,8 @@
+//main.cpp
+//Author: Jeremy Butt
+//				jeremybutt@mun.ca
+//				201527710
+
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -64,7 +69,7 @@ int main(int argc,char *argv[]){
 			}
 		}
 		cout << "] Min: " << minimum(arr[n].data, arr[n].size) << " Max: "  << maximum(arr[n].data, arr[n].size) << " Avg: " << average(arr[n].data, arr[n].size) << endl;
-		//Deallocate and zero out heap allocated memory locations. 
+		//Deallocate and zero out heap allocated memory locations.
 		delete[] arr[n].data;
 		arr[n].data = nullptr;
 	}
