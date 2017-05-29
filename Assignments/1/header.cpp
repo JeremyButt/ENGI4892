@@ -10,7 +10,8 @@
 #include "header.h"
 using namespace std;
 
-
+// pre-condition: int array input_data which has all data to be put into the struct Col data array, and int size the size of the array.
+// post-condition: returns an array to be put in the struct Col.
 int* fillArray(int data_input[], int size){
 	int* data = new int[size];	//new allocated mem for array
 	for(int i = 0; i<(size); i++){
@@ -19,6 +20,9 @@ int* fillArray(int data_input[], int size){
 	return data;
 }
 
+// pre-condition: string s that is only numbers separated by a single space, int array data that is
+// 		an empty array to return the numbers parsed from the string, and int size the size of the array.
+// post-condition: Returns true on a successful parse.
 bool parse_data(string s, int data[], int size){
 	istringstream iss(s);	// create string stream object
   string str;
@@ -32,6 +36,8 @@ bool parse_data(string s, int data[], int size){
 	return true;
 }
 
+// pre-condition: string that is only numbers separated by a single space.
+// post-condition: Finds the first number in the string and converts it to an int to be returned.
 int getLengthRequired(string s){
 	istringstream iss(s);	// create string stream object
 	string s_length;
@@ -41,6 +47,8 @@ int getLengthRequired(string s){
 	return i_length;
 }
 
+// pre-condition: Pointer to an array of ‘n’ integers
+// post-condition: Calculates the minimum element in the array (array is unchanged) … minimum( … )
 int minimum(int* data, int size){
 	int answer = data[0];	//set 0th element to smallest
 	// Loop through array
@@ -53,6 +61,8 @@ int minimum(int* data, int size){
 	return answer;
 }
 
+// pre-condition: Pointer to an array of ‘n’ integers
+// post-condition: Calculates the maximum element in the array (array is unchanged) … maximum ( … )
 int maximum(int* data, int size){
 	int answer = data[0];	//set 0th element to largest
 	// Loop through array
@@ -65,6 +75,8 @@ int maximum(int* data, int size){
 	return answer;
 }
 
+// pre-condition: Pointer to an array of ‘n’ integers
+// post-condition: Calculates the average of the elements in the array (array is unchanged) … average ( … )
 double average(int* data, int size){
 	int answer = 0;
 	for(int i=0; i<size; i++){
