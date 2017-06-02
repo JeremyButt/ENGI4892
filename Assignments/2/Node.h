@@ -14,7 +14,7 @@ public:
     ~Node();
 
     //Member Functions
-    get_data();
-    get_count();
-    update_count();
+    T get_data();
+    int get_count();
+    void update_count(int count);
 }

@@ -15,12 +15,12 @@ Node(T data, Node* next, Node* prev){
 }
 
 //Member Functions
-get_data(){
+T get_data(){
 
 }
-get_count(){
+int get_count(){
 
 }
-update_count(){
-  
+void update_count(int count){
+
 }

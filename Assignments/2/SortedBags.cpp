@@ -17,27 +17,27 @@ SortedBags(){
   delete this->tail;
 }
 
-insert(){
+void insert(){
 
 }
-RM_spec(){
+void RM_spec(){
 
 }
-RM_all(){
+void RM_all(){
 
 }
-get_size(){
+int get_size(){
 
 }
-getOccur(){
+int getOccur(){
 
 }
-bagEmpty(){
+bool bagEmpty(){
 
 }
-findItem(){
+bool findItem(){
 
 }
-print(){
-  
+void print(){
+
 }

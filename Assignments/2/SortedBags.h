@@ -12,12 +12,12 @@ public:
     ~SortedBags();
 
     //Member Functions
-    insert();
-    RM_spec();
-    RM_all();
-    get_size();
-    getOccur();
-    bagEmpty();
-    findItem();
-    print();
+    void insert();
+    void RM_spec();
+    void RM_all();
+    int get_size();
+    int getOccur();
+    bool bagEmpty();
+    bool findItem();
+    void print();
 }
