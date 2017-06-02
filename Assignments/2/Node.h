@@ -1,4 +1,5 @@
-class Node<class T>{
+template <class T>
+class Node{
 
 private:
     T data_;
