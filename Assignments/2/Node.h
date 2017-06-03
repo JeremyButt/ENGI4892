@@ -1,21 +1,32 @@
+/****************************************************
+*  ASSIGNMENT #2
+*   Node.h
+*    Location for Node class
+*
+*   Author: Jeremy Butt (201527710)
+*           jeremybutt@mun.ca
+****************************************************/
+
+
+
 template <class T>
 class Node{
 
 private:
-    
+
 
 
 public:
-    Node<T>* next_;
-    T data_;
-    int count_;
+    Node<T>* next_; //store pointer to next list node
+    T data_;  // data within the node
+    int count_; //count of the data entries within the node
 
     //****************************
     //  Member Function Definitions
     //
     //****************************
 
-    // Constructor
+    // Constructor [Not required]
     Node(){
     }
 
@@ -26,16 +37,4 @@ public:
       this->next_ = nullptr;
       delete this->next_;
     }
-
-    //Member Functions
-    T get_data(){
-      return this->data_;
-    }
-    int get_count(){
-      return this->count_;
-    }
-    void update_count(int count){
-      this->count_=count;
-    }
-
 };
