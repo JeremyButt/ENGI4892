@@ -12,8 +12,6 @@
 template <class T>
 class Node{
 
-private:
-
 
 
 public:

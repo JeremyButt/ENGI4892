@@ -240,7 +240,7 @@ public:
       //while not at end
       while(temp!=nullptr){
         //print out content
-        std::cout << "[Data: " << temp->get_data() << " Count: "  << temp->get_count() << "] " <<  "\t";
+        std::cout << "[Data: " << temp->data_ << " Count: "  << temp->count_ << "] " <<  "\t";
         temp=temp->next_;
       }
     }
