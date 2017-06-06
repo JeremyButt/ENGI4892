@@ -90,6 +90,7 @@ public:
       count++;
       temp = temp->next;
     }
+    delete temp;
     return count; // return final count
   }
 
@@ -121,5 +122,6 @@ public:
       }
       cout << "]" << endl;
     }
+    delete temp;
   }
 };
