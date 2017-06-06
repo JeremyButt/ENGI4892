@@ -1,0 +1,9 @@
+Worst case senario: 
+	RM_all();
+		- while loop to see if all node have been deleted
+			-findItemAddress(one loop though list)
+			-finditemPosition(one loop through list)
+			-deleteAt(loop to position in list)
+
+2 layers of loops evident therefor time complexity is O(N^2)
+
