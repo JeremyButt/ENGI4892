@@ -42,6 +42,5 @@ int main(int argc, char const *argv[]) {
   bag.display();//display content
   cout << endl << endl;
 
-
   return 0;
 }

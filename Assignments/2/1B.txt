@@ -1,9 +1,10 @@
 Worst case senario: 
 	RM_all();
-		- while loop to see if all node have been deleted
-			-findItemAddress(one loop though list)
-			-finditemPosition(one loop through list)
-			-deleteAt(loop to position in list)
+		- while loop to see if all node have been deleted (not through all items {not N})
+			-findItemAddress(one loop though list {N items})
+			-finditemPosition(one loop through list {N items})
+			-deleteAt(loop to position in list {N items})
 
-2 layers of loops evident therefor time complexity is O(N^2)
+2 layers of loops evident however only one is looping through N items at a time, therefore time complexity is O(2N) 
+which means O(N).
 
