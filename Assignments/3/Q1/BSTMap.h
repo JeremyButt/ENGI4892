@@ -1,3 +1,8 @@
+//BSTMap.h
+//Author: Jeremy Butt
+//				jeremybutt@mun.ca
+//				201527710
+
 #ifndef __BSTMAP_H__
 #define __BSTMAP_H__
 #include "BSTNode.h"

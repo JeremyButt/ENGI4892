@@ -1,3 +1,8 @@
+//ExpressionTree.cpp
+//Author: Jeremy Butt
+//				jeremybutt@mun.ca
+//				201527710
+
 #include <stack>
 #include <sstream>
 #include <string>
@@ -216,5 +221,5 @@ int main(int ac, char* av[])
   cout << endl;
 
   ExpressionTree expr2("2 / ( 3 - 7 ) * 5");// create tree
-  cout << "Final evaluation: " << expr2.evaluate() << endl;// eval 
+  cout << "Final evaluation: " << expr2.evaluate() << endl;// eval
 }
