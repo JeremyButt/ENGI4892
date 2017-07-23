@@ -48,12 +48,14 @@ class HashWithQuadratic : public HashTable<K,V>
       int loc = hashcode(key)%capacity;// get loc from key
 
       // for the quad steps and while data is not null
-      for(int step = 1; data[loc]->key != key; step++){
-        loc = (loc + (step * step - step) / 2) % capacity;// update loc if the data is not null using the quadratic probeing
+      for(int step = 1;  data[loc] != nullptr; step++){
         this->keys_examined++;// inc keys examined
+        if(data[loc]->key == key){
+          return &data[loc]->value; // when found return
+        }
+        loc = (loc + (step * step - step) / 2) % capacity;// update loc if the data is not null using the quadratic probeing
       }
-      this->keys_examined++;// inc keys examined
-      return &data[loc]->value; // return the adress to the value
+      return 0; // hit null then not found
     }
 
     // pre-condition:  a valid hashtable

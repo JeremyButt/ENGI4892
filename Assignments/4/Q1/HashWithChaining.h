@@ -45,7 +45,7 @@ class HashWithChaining : public HashTable<K,V>
     {
       int loc = hashcode(key)%capacity;
       if(data[loc].empty()){
-        return nullptr; // if vectpr at location is empty then no value found
+        return 0; // if vectpr at location is empty then no value found
       }
       else{
         for(auto const& temp : data[loc]){  // for all in vector comare to see if that is key/ value pair
@@ -53,7 +53,7 @@ class HashWithChaining : public HashTable<K,V>
           if(temp.key == key)
             return &temp.value; //return address to the value
         }
-        return nullptr;
+        return 0;
       }
     }
 
