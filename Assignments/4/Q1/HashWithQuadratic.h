@@ -26,7 +26,6 @@ class HashWithQuadratic : public HashTable<K,V>
     // post-condition: 'value' is added at position determined by 'key'
     bool insert(const K& key, const V& value) override
     {
-      this->keys_examined = 0;  // reset keys examined count
       int loc = hashcode(key)%capacity; // get loc index
 
       // for the quad steps and while data is not null
@@ -46,7 +45,6 @@ class HashWithQuadratic : public HashTable<K,V>
     // post-condition: the value associated with 'key', else nullptr
     const V* find(const K& key) override
     {
-      this->keys_examined = 0;// reset keys examined count
       int loc = hashcode(key)%capacity;// get loc from key
 
       // for the quad steps and while data is not null

@@ -24,7 +24,6 @@ class HashWithChaining : public HashTable<K,V>
     // post-condition: 'value' is added at position determined by 'key'
     bool insert(const K& key, const V& value) override
     {
-      this->keys_examined = 0;  // reset keys examined
       int loc = hashcode(key)%capacity; // get loc from key
 
       if(data[loc].empty()){
@@ -44,7 +43,6 @@ class HashWithChaining : public HashTable<K,V>
     // post-condition: the value associated with 'key', else nullptr
     const V* find(const K& key) override
     {
-      this->keys_examined = 0;// reset keys examined
       int loc = hashcode(key)%capacity;
       if(data[loc].empty()){
         return nullptr; // if vectpr at location is empty then no value found
