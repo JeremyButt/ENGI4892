@@ -24,24 +24,46 @@ class HashWithChaining : public HashTable<K,V>
     // post-condition: 'value' is added at position determined by 'key'
     bool insert(const K& key, const V& value) override
     {
-      // FIXME
-      return false;
+      this->keys_examined = 0;  // reset keys examined
+      int loc = hashcode(key)%capacity; // get loc from key
+
+      if(data[loc].empty()){
+        size++; // if empty then new location in array being used
+      }
+
+      this->keys_examined++;// inc keys examined
+      HTEntry temp = HTEntry(key, value);// new temp entry
+
+      data[loc].push_back(temp);  // puch temp into vector
+
+
+      return true;
     }
 
     // pre-condition:  a valid hashtable
     // post-condition: the value associated with 'key', else nullptr
     const V* find(const K& key) override
     {
-      // FIXME
-      return nullptr;
+      this->keys_examined = 0;// reset keys examined
+      int loc = hashcode(key)%capacity;
+      if(data[loc].empty()){
+        return nullptr; // if vectpr at location is empty then no value found
+      }
+      else{
+        for(auto const& temp : data[loc]){  // for all in vector comare to see if that is key/ value pair
+          this->keys_examined++;// inc keys examined
+          if(temp.key == key)
+            return &temp.value; //return address to the value
+        }
+        return nullptr;
+      }
     }
 
     // pre-condition:  a valid hashtable
     // post-condition: return the load factor; hashtable is not modified
     float loadFactor() const override
     {
-      // FIXME
-      return 0;
+      return size/capacity; // return the load factor
     }
 
     // pre-condition:  a valid hashtable
@@ -49,20 +71,30 @@ class HashWithChaining : public HashTable<K,V>
     //                 hashtable is not modified
     int totalKeysExamined() const override
     {
-      // FIXME
-      return 0;
+      return keys_examined; //return most recent key examined count
     }
 
     // pre-condition:  a valid hashtable
     // post-condition: hashtable is not modified
     void print() const override
     {
-      // FIXME
+      cout << "KEY" << " | " << "Value" << endl;
+      cout << "______________________________________" << endl;
+      //for all in array
+      for(int i = 0; i < capacity; i++){
+        //if not emplty
+        if(!data[i].empty()){
+          for(auto const& temp : data[i]){ // for every entry in vector
+            cout << temp.key << " | " << temp.value << endl;  // cout the key and value
+          }
+        }
+      }
     }
 
   private:
     static constexpr int capacity = 211;
     std::function<int(K)> hashcode;
+    int keys_examined = 0;
 
     // Contains key/value pairs for the hashtable
     struct HTEntry {
