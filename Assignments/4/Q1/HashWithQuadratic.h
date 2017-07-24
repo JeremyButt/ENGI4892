@@ -26,6 +26,9 @@ class HashWithQuadratic : public HashTable<K,V>
     // post-condition: 'value' is added at position determined by 'key'
     bool insert(const K& key, const V& value) override
     {
+      if(size == capacity){
+        return false;// return false if the array is full 
+      }
       int loc = hashcode(key)%capacity; // get loc index
 
       // for the quad steps and while data is not null
