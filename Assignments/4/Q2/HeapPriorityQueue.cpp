@@ -91,7 +91,7 @@ void HeapPriorityQueue<K,V>::trickleDown(int idx){
     heap[child1] = temp;
     trickleDown(child1); // preform recursive call on trickleDown to continue trickling until last elemente hit
   // else if not beond the last element and the idx < child2
-  }else if (idx < heap.size() && heap[idx].key < heap[child2].key){
+  }if (idx < heap.size() && heap[idx].key < heap[child2].key){
     //swap child and parent
     PQEntry temp = heap[idx];
     heap[idx] = heap[child2];
