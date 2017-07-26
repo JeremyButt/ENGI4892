@@ -52,6 +52,7 @@ bool EdgeListGraph::areAdjacent(const Vertex& v, const Vertex& w) const
 bool EdgeListGraph::insertVertex(const Vertex& v)
 {
   this->myVertices.push_back(v);// push the vertext into the VertexCollection myVertices
+  return true;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -88,6 +89,7 @@ bool EdgeListGraph::insertEdge(const Edge& e)
   }
 
   this->myEdges.push_back(e); // add the edge to the myEdges vector
+  return true;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
