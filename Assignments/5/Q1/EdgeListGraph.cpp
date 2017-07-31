@@ -81,8 +81,9 @@ bool EdgeListGraph::removeVertex(const Vertex& v)
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// O(n+m) because looping thought 2 vectors of different lengths(n - endVertices
-//                                                               m - myVertices)
+// O(n) because looping thought 2 vectors of different lengths(n - endVertices which is always 2
+//                                                             m - myVertices)
+//
 bool EdgeListGraph::insertEdge(const Edge& e)
 {
   VertexCollection temp = e.endVertices(); // vertex collection for all the end vertices of the edge
@@ -104,7 +105,7 @@ bool EdgeListGraph::insertEdge(const Edge& e)
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// O(n) because looping through myEdges 
+// O(n) because looping through myEdges
 bool EdgeListGraph::removeEdge(const Edge& e)
 {
   for (std::vector<Edge>::iterator it = myEdges.begin() ; it != myEdges.end(); ++it){ // for all edges in myEdges (iterator approach)
