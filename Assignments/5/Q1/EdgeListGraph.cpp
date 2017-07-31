@@ -7,6 +7,7 @@
 #include "EdgeListGraph.h"
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//O(1) because we are just setting 2 member variables
 EdgeListGraph::EdgeListGraph(const VertexCollection& v,const EdgeCollection& e)
 {
   this->myEdges = e; // load the Edge collection into the object instance
@@ -14,18 +15,21 @@ EdgeListGraph::EdgeListGraph(const VertexCollection& v,const EdgeCollection& e)
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//O(1) because we are just returning one value
 VertexCollection EdgeListGraph::vertices() const
 {
   return myVertices;// return the VertexCollection
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//O(1) because we are just returning one value
 EdgeCollection EdgeListGraph::edges() const
 {
   return myEdges;// return the Edge collection
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//O(n) worst case wed be going through the entire vector of edges (myEdges)
 EdgeCollection EdgeListGraph::incidentEdges(const Vertex& v) const
 {
   EdgeCollection incidentEdges;// to store all incidentEdges
@@ -38,6 +42,7 @@ EdgeCollection EdgeListGraph::incidentEdges(const Vertex& v) const
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//O(n) worst case wed be going through the entire vector of edges (myEdges)
 bool EdgeListGraph::areAdjacent(const Vertex& v, const Vertex& w) const
 {
   for(Edge const edge : myEdges){// for all edges in myEdges
@@ -49,6 +54,7 @@ bool EdgeListGraph::areAdjacent(const Vertex& v, const Vertex& w) const
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//O(1) all we are doing is doing a pushback.
 bool EdgeListGraph::insertVertex(const Vertex& v)
 {
   this->myVertices.push_back(v);// push the vertext into the VertexCollection myVertices
@@ -56,6 +62,9 @@ bool EdgeListGraph::insertVertex(const Vertex& v)
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// O(m+n+x) because of looping though 2 vectors of different length. (m - is length of the myVertices vector.
+//                                                                    n - length of the incidentEdges
+//                                                                    x- length of myedges)
 bool EdgeListGraph::removeVertex(const Vertex& v)
 {
   for (std::vector<Vertex>::iterator it = myVertices.begin() ; it != myVertices.end(); ++it){ // for all the vertices in myVertices (iterator approach to have iterator to perform operations)
@@ -72,6 +81,8 @@ bool EdgeListGraph::removeVertex(const Vertex& v)
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// O(n+m) because looping thought 2 vectors of different lengths(n - endVertices
+//                                                               m - myVertices)
 bool EdgeListGraph::insertEdge(const Edge& e)
 {
   VertexCollection temp = e.endVertices(); // vertex collection for all the end vertices of the edge
@@ -93,6 +104,7 @@ bool EdgeListGraph::insertEdge(const Edge& e)
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// O(n) because looping through myEdges 
 bool EdgeListGraph::removeEdge(const Edge& e)
 {
   for (std::vector<Edge>::iterator it = myEdges.begin() ; it != myEdges.end(); ++it){ // for all edges in myEdges (iterator approach)
