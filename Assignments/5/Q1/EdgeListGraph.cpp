@@ -54,11 +54,18 @@ bool EdgeListGraph::areAdjacent(const Vertex& v, const Vertex& w) const
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-//O(1) all we are doing is doing a pushback.
+//O(n) if the vertex is not in myVertices then O(n).
 bool EdgeListGraph::insertVertex(const Vertex& v)
 {
-  this->myVertices.push_back(v);// push the vertext into the VertexCollection myVertices
-  return true;
+  bool found = false;
+  for(Vertex const vertex : myVertices){
+    if(vertex == v){
+      found = true;
+    }
+  }
+  if(!found)
+    this->myVertices.push_back(v);// push the vertext into the VertexCollection myVertices
+  return found;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
